@@ -1,0 +1,37 @@
+[tasks.brew]
+  cmds = [
+    ["/usr/bin/ruby", "-e", "\"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""]
+  ]
+
+[tasks.git]
+  deps = ["brew"]
+  cmds = [
+    ["brew", "install", "git"]
+  ]
+
+[tasks.neovim]
+  deps = ["brew"]
+  cmds = [
+    ["brew", "install", "neovim"]
+  ]
+  links = [
+    [".config/nvim"]
+  ]
+
+[tasks.zsh]
+  deps = ["brew"]
+  cmds = [
+    ["chsh", "-s", "/bin/zsh"]
+  ]
+  links = [
+    [".zshrc"]
+  ]
+
+[tasks.ohmyzsh]
+  deps = ["brew", "git", "zsh"]
+  cmds = [
+    ["git", "clone", "git://github.com/robbyrussell/oh-my-zsh.git", "~/.oh-my-zsh"]
+  ]
+
+[tasks.default]
+  deps = ["brew", "git", "neovim", "zsh", "ohmyzsh"]
