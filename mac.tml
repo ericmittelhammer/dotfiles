@@ -1,13 +1,13 @@
-[tasks.brew]
-  cmds = [
-    ["/usr/bin/ruby", "-e", "\"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""]
-  ]
+#[tasks.brew]
+#  cmds = [
+#    ["/usr/bin/ruby", "-e", "\"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""]
+#  ]
 
-[tasks.git]
-  deps = ["brew"]
-  cmds = [
-    ["brew", "install", "git"]
-  ]
+#[tasks.git]
+#  deps = ["brew"]
+#  cmds = [
+#    ["brew", "install", "git"]
+#  ]
 
 [tasks.neovim]
   deps = ["brew"]
