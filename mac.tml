@@ -10,6 +10,12 @@
     ["brew", "install", "git"]
   ]
 
+[tasks.python3]
+  deps = ["brew"]
+  cmds = [
+    ["brew", "install", "python3"]
+  ]
+
 [tasks.neovim]
   deps = ["brew"]
   cmds = [
@@ -19,7 +25,14 @@
     [".config/nvim"]
   ]
 
+[tasks.neovim_python]
+  deps = ["python3", "neovim"]
+  cmds = [
+    ["pip3", "install", "neovim"]
+  ]
+
 [tasks.zsh]
+  rejects = [["which", "zsh"]]
   deps = ["brew"]
   cmds = [
     ["chsh", "-s", "/bin/zsh"]
@@ -29,10 +42,17 @@
   ]
 
 [tasks.ohmyzsh]
+  rejects = [["file", "~/.oh-my-zsh/oh-my-zsh.sh"]]
   deps = ["brew", "git", "zsh"]
   cmds = [
     ["git", "clone", "git://github.com/robbyrussell/oh-my-zsh.git", "${HOME}/.oh-my-zsh"]
   ]
 
+[tasks.pandoc]
+  deps = ["brew"]
+  cmds = [
+    ["brew", "install", "pandoc"]
+  ]
+
 [tasks.default]
-  deps = ["brew", "git", "neovim", "zsh", "ohmyzsh"]
+  deps = ["brew", "git", "neovim", "zsh", "ohmyzsh", "pandoc"]

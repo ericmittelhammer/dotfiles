@@ -1,5 +1,9 @@
 source ~/.config/nvim/plugins.vim
 
+if (filereadable(expand("~/.local/config/nvim/local.vim")))
+  source ~/.local/config/nvim/local.vim
+endif
+
 set background=dark
 colorscheme Tomorrow-Night
 inoremap jj <esc>
@@ -37,3 +41,5 @@ set shiftround
 set smartindent
 
 filetype plugin indent on
+
+silent! source .vimlocal
